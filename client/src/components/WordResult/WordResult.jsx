@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 export default function WordResult({ wordResult }) {
     return (
         <>
@@ -5,11 +7,11 @@ export default function WordResult({ wordResult }) {
                 <dt>Word</dt>
                 <dd>{wordResult.word}</dd>
 
-                {wordResult.meanings.map((meaning) => (
-                    <>
+                {wordResult.meanings.map((meaning, i) => (
+                    <Fragment key={i}>
                         <dt>{meaning.partOfSpeech}</dt>
                         <dd>{meaning.definitions[0].definition}</dd>
-                    </>
+                    </Fragment>
                 ))}
             </dl>
         </>
