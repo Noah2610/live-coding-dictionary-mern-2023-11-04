@@ -24,7 +24,15 @@ export default function WordResult({ wordResult }) {
                 {wordResult.meanings.map((meaning, i) => (
                     <Fragment key={i}>
                         <dt>{meaning.partOfSpeech}</dt>
-                        <dd>{meaning.definitions[0].definition}</dd>
+                        <dd>
+                            <ul>
+                                {meaning.definitions.map(({ definition }, j) => (
+                                    <li key={`${i}-${j}`}>
+                                        {definition}
+                                    </li>
+                                ))}
+                            </ul>
+                        </dd>
                     </Fragment>
                 ))}
             </dl>
